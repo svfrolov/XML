@@ -1,0 +1,102 @@
+/* Стили для новых элементов */
+.additional-container {
+    margin-top: 20px;
+    width: 320px;
+    text-align: center;
+}
+
+.author-info {
+    text-align: center;
+    color: #fff;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.change-bg-button {
+    background-color: #00b894;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    width: 120px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+
+.github-button {
+    background-color: #24292e;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.dropdown-container {
+    margin: 15px 0;
+}
+
+.dropdown-container label {
+    color: #fff;
+    margin-right: 10px;
+}
+
+#theme-select {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #3a3a3a;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 150px;
+}
+
+.details-section {
+    margin: 15px 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.details-section summary {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.details-section p {
+    margin: 5px 0;
+    padding-left: 10px;
+}
+
+.purpose-section {
+    margin: 15px 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.purpose-section h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+mark {
+    background-color: #ff9f43;
+    color: #000;
+    padding: 0 3px;
+    border-radius: 3px;
+}
