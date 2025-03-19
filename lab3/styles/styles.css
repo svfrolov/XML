@@ -162,8 +162,9 @@ body {
 }
 
 .banner h1 {
-  font-size: 36px;
+  font-size: 52px;
   margin-bottom: 20px;
+  line-height: 1.0; /* Контролирует высоту строки */
 }
 
 .banner p {
