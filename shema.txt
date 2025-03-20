@@ -16,8 +16,7 @@ lab3/
 │           └── index.js
 │
 ├── styles/
-│   └── banner.css
-│   └── main.css
+│   └── styles.css
 │
 ├── img/
 │   └── logo1.png
