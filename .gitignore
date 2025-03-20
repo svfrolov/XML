@@ -1,5 +1,4 @@
 # Конкретные файлы и папки
-node_modules/
 private/
 dist/
 build/
@@ -44,12 +43,6 @@ lab6/
 *.log
 *.sqlite
 *.db
-
-# Пакетные менеджеры
-node_modules/
-bower_components/
-package-lock.json
-yarn.lock
 
 # Файлы компиляции
 *.class
