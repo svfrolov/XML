@@ -1,0 +1,146 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c71585; /* Малиновый цвет фона по умолчанию */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* Контейнер калькулятора - изменен селектор с div на .calculator */
+.calculator {
+    background-color: rgba(57, 62, 111, 0.85); /* полупрозрачный сине-серый для калькулятора */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* добавляем размытие для эффекта стеклянности */
+    width: 320px; /* фиксированная ширина для калькулятора */
+}
+
+/* Экран результата */
+#result {
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    padding: 15px; /* увеличен отступ поля вывода */
+    text-align: right;
+    font-size: 2.5rem; /* увеличен размер шрифта */
+    color: #ff9f43; /* оранжевый цвет текста на дисплее */
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace; /* шрифтом стиль кода */
+    font-weight: bold; /* делаем шрифт более жирным */
+}
+
+/* Кнопки */
+button {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Эффект при наведении */
+button:hover {
+    filter: brightness(120%);
+    background-color: #5352ed; /* Меняется цвет при наведении на кнопку */
+}
+
+/* Стили для кнопок */
+button.secondary {
+    background-color: #686de0; /* Синий фиолетово-синий */
+    color: #fff;
+}
+
+button.primary {
+    background-color: #4834d4; /* Насыщенный фиолетовый */
+    color: #fff;
+}
+
+button.digit {
+    background-color: #535c68; /* Серо-синий */
+    color: #fff;
+}
+
+/* Стили для кнопки "Луна" */
+button.luna {
+    background-color: #00b894; /* Бирюзовый цвет кнопки с градиентом */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    padding: 0;
+}
+
+/* Эффект наведения */
+button:hover {
+    filter: brightness(120%);
+}
+
+/* Эффект нажатия */
+button:active {
+    filter: brightness(90%);
+}
+
+/* Эффект наведения для кнопки "Луна" */
+button.luna:hover {
+    background-color: #78c357; /* Более светлый зеленый при наведении */
+    filter: brightness(120%);
+}
+
+/* Эффект нажатия для кнопки "Луна" */
+button.luna:active {
+    filter: brightness(120%);
+    background-color: #5352ed; /* Меняется цвет при наведении на кнопку */
+}
+
+/* Стили для кнопки Luna */
+.luna {
+    background-color: #6a0dad; /* Фиолетовый цвет для кнопки Luna */
+    color: white;
+    grid-column: span 4; /* Растянуть все ширину */
+    margin-top: 10px;
+}
+
+.luna:hover {
+    background-color: #8a2be2;
+}
+
+/* Контейнер для дополнительных элементов */
+.additions-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+/* Стили для панели дополнений */
+.additions-panel {
+    background-color: rgba(57, 62, 111, 0.85);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    margin-left: 20px;
+}
+
+/* Контейнер для основного содержимого */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
