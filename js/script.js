@@ -40,19 +40,15 @@ function clearDisplay() {
     updateDisplay();
 }
 
-// Изменение знака числа
+// Смена знака числа
 function changeSign() {
     displayValue = (parseFloat(displayValue) * -1).toString();
     updateDisplay();
 }
 
-// Расчет процента
+// Вычисление процента
 function calculatePercent() {
-    if (firstNumber !== null && operation) {
-        displayValue = (firstNumber * parseFloat(displayValue) / 100).toString();
-    } else {
-        displayValue = (parseFloat(displayValue) / 100).toString();
-    }
+    displayValue = (parseFloat(displayValue) / 100).toString();
     updateDisplay();
 }
 
@@ -60,7 +56,7 @@ function calculatePercent() {
 function setOperation(op) {
     if (firstNumber === null) {
         firstNumber = parseFloat(displayValue);
-    } else if (operation) {
+    } else if (!newNumberFlag) {
         calculate();
     }
     operation = op;
@@ -73,27 +69,58 @@ function calculate() {
         return;
     }
     
-    var secondNumber = parseFloat(displayValue);
-    var result = 0;
+    const secondNumber = parseFloat(displayValue);
+    let result;
     
-    if (operation === "+") {
-        result = firstNumber + secondNumber;
-    } else if (operation === "-") {
-        result = firstNumber - secondNumber;
-    } else if (operation === "*") {
-        result = firstNumber * secondNumber;
-    } else if (operation === "/") {
-        result = firstNumber / secondNumber;
+    switch (operation) {
+        case "+":
+            result = firstNumber + secondNumber;
+            break;
+        case "-":
+            result = firstNumber - secondNumber;
+            break;
+        case "*":
+        case "x":
+            result = firstNumber * secondNumber;
+            break;
+        case "/":
+            if (secondNumber === 0) {
+                result = "Ошибка";
+            } else {
+                result = firstNumber / secondNumber;
+            }
+            break;
     }
     
-    displayValue = result.toString();
-    firstNumber = result;
+    displayValue = typeof result === "number" ? result.toString() : result;
     operation = null;
+    firstNumber = null;
     newNumberFlag = true;
     updateDisplay();
 }
 
-// Инициализация дисплея при загрузке страницы
-window.onload = function() {
-    updateDisplay();
-};
+// Добавляем обработчики событий для кнопок
+document.addEventListener('DOMContentLoaded', function() {
+    // Цифры
+    document.getElementById('btn_digit_0').addEventListener('click', function() { addNumber('0'); });
+    document.getElementById('btn_digit_1').addEventListener('click', function() { addNumber('1'); });
+    document.getElementById('btn_digit_2').addEventListener('click', function() { addNumber('2'); });
+    document.getElementById('btn_digit_3').addEventListener('click', function() { addNumber('3'); });
+    document.getElementById('btn_digit_4').addEventListener('click', function() { addNumber('4'); });
+    document.getElementById('btn_digit_5').addEventListener('click', function() { addNumber('5'); });
+    document.getElementById('btn_digit_6').addEventListener('click', function() { addNumber('6'); });
+    document.getElementById('btn_digit_7').addEventListener('click', function() { addNumber('7'); });
+    document.getElementById('btn_digit_8').addEventListener('click', function() { addNumber('8'); });
+    document.getElementById('btn_digit_9').addEventListener('click', function() { addNumber('9'); });
+    document.getElementById('btn_digit_dot').addEventListener('click', addDecimal);
+    
+    // Операции
+    document.getElementById('btn_op_clear').addEventListener('click', clearDisplay);
+    document.getElementById('btn_op_sign').addEventListener('click', changeSign);
+    document.getElementById('btn_op_percent').addEventListener('click', calculatePercent);
+    document.getElementById('btn_op_div').addEventListener('click', function() { setOperation('/'); });
+    document.getElementById('btn_op_mult').addEventListener('click', function() { setOperation('*'); });
+    document.getElementById('btn_op_minus').addEventListener('click', function() { setOperation('-'); });
+    document.getElementById('btn_op_plus').addEventListener('click', function() { setOperation('+'); });
+    document.getElementById('btn_op_equal').addEventListener('click', calculate);
+});

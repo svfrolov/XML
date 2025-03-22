@@ -1,0 +1,11 @@
+/lab2
+  ├── calculator.html
+  ├── styles
+  │   ├── styles.css
+  │   └── additions.css
+  ├── js
+  │   ├── script.js
+  │   ├── luna.js
+  │   └── additions.js
+  └── img
+      └── background.jpg

@@ -2,22 +2,34 @@
 function calculateLunarFallTime() {
     // Проверяем, нужно ли сначала закончить вычисление
     if (operation && !newNumberFlag) {
-        // Если есть незавершенная операция, сначала вычисляем результат
         calculate();
     }
     
-    // Получаем высоту из текущего значения на экране
-    var height = parseFloat(displayValue); 
+    // Получаем высоту падения (текущее значение на дисплее)
+    const height = parseFloat(displayValue);
     
-    // Ускорение свободного падения на Луне (м/с²)
-    var lunarGravity = 1.62; 
+    // Проверка на отрицательное значение высоты
+    if (height < 0) {
+        displayValue = "Ошибка";
+        updateDisplay();
+        return;
+    }
     
-    // Формула времени падения: t = √(2h/g)
-    var fallTime = Math.sqrt((2 * height) / lunarGravity);
+    // Расчет времени падения на Луне
+    // Формула: t = sqrt(2h/g), где g = 1.62 м/с² для Луны
+    const lunarGravity = 1.62; // м/с²
+    const fallTime = Math.sqrt((2 * height) / lunarGravity);
     
-    // Округляем до 2 знаков после запятой
-    displayValue = fallTime.toFixed(2);
-    
-    // Обновляем экран
+    // Округляем до 2 десятичных знаков и выводим результат
+    displayValue = fallTime.toFixed(2) + " с";
     updateDisplay();
+    newNumberFlag = true;
 }
+
+// Добавляем обработчик события для кнопки Луна
+document.addEventListener('DOMContentLoaded', function() {
+    const lunaButton = document.getElementById('btn_op_luna');
+    if (lunaButton) {
+        lunaButton.addEventListener('click', calculateLunarFallTime);
+    }
+});

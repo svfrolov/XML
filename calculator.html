@@ -3,47 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простой Калькулятор</title>
-    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <!-- Экран -->
-        <div id="result">0</div>
-        <!-- Кнопки -->
-		<div class="buttons">
-			<button onclick="clearDisplay()" class="secondary">C</button>
-			<button onclick="changeSign()" class="secondary">+/-</button>
-			<button onclick="calculatePercent()" class="secondary">%</button>
-			<button onclick="setOperation('/')" class="primary">/</button>
-		</div>
-		<div class="buttons">
-			<button onclick="addNumber('7')" class="digit">7</button>
-			<button onclick="addNumber('8')" class="digit">8</button>
-			<button onclick="addNumber('9')" class="digit">9</button>
-			<button onclick="setOperation('*')" class="primary">x</button>
-		</div>
-		<div class="buttons">
-			<button onclick="addNumber('4')" class="digit">4</button>
-			<button onclick="addNumber('5')" class="digit">5</button>
-			<button onclick="addNumber('6')" class="digit">6</button>
-			<button onclick="setOperation('-')" class="primary">-</button>
-		</div>
-		<div class="buttons">
-			<button onclick="addNumber('1')" class="digit">1</button>
-			<button onclick="addNumber('2')" class="digit">2</button>
-			<button onclick="addNumber('3')" class="digit">3</button>
-			<button onclick="setOperation('+')" class="primary">+</button>
-		</div>
-		<div class="buttons">
-			<button onclick="calculateLunarFallTime()" class="luna">луна</button>
-			<button onclick="addNumber('0')" class="digit">0</button>
-			<button onclick="addDecimal()" class="digit">.</button>
-			<button onclick="calculate()" class="primary">=</button>
-		</div>
-	<link rel="stylesheet" href="/styles/additions.css">
-    <script src="/js/additions.js"></script>
-    <script src="/js/script.js"></script>  
-    <script src="/js/luna.js"></script>  
+    <!-- Верхний блок с калькулятором -->
+    <section class="top-block">
+        <div class="calculator">
+            <!-- Экран -->
+            <div id="result" class="result">0</div>
+
+            <!-- Кнопки -->
+            <div>
+                <button id="btn_op_clear" class="my-btn secondary">C</button>
+                <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+                <button id="btn_op_percent" class="my-btn secondary">%</button>
+                <button id="btn_op_div" class="my-btn primary">/</button>
+            </div>
+            <div>
+                <button id="btn_digit_7" class="my-btn">7</button>
+                <button id="btn_digit_8" class="my-btn">8</button>
+                <button id="btn_digit_9" class="my-btn">9</button>
+                <button id="btn_op_mult" class="my-btn primary">x</button>
+            </div>
+            <div>
+                <button id="btn_digit_4" class="my-btn">4</button>
+                <button id="btn_digit_5" class="my-btn">5</button>
+                <button id="btn_digit_6" class="my-btn">6</button>
+                <button id="btn_op_minus" class="my-btn primary">-</button>
+            </div>
+            <div>
+                <button id="btn_digit_1" class="my-btn">1</button>
+                <button id="btn_digit_2" class="my-btn">2</button>
+                <button id="btn_digit_3" class="my-btn">3</button>
+                <button id="btn_op_plus" class="my-btn primary">+</button>
+            </div>
+            <div>
+                <button id="btn_digit_0" class="my-btn">0</button>
+                <button id="btn_digit_dot" class="my-btn">.</button>
+                <button id="btn_op_equal" class="my-btn primary execute">=</button>
+            </div>
+            <!-- Добавляем кнопку Луна -->
+            <div>
+                <button id="btn_op_luna" class="my-btn luna">Луна</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Нижний блок с дополнительной информацией -->
+    <section class="bottom-block">
+        <div class="additional-info">
+            <!-- Сюда будет добавлена дополнительная информация через JS -->
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="styles/additions.css">
+    <script src="js/script.js"></script>
+    <script src="js/luna.js"></script>
+    <script src="js/additions.js"></script>
 </body>
 </html>

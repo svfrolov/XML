@@ -144,3 +144,18 @@ button.luna:active {
     align-items: flex-start;
 }
 
+/* Стили для кнопки Луна */
+.my-btn.luna {
+    background-color: #00b894; /* Цвет кнопки Луна из lab2 */
+    color: white;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.my-btn.luna:hover {
+    background-color: #3742fa;
+    transform: translateY(-2px);
+}
