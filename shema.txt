@@ -1,0 +1,7 @@
+/lab1
+  ├── calculator.html
+  ├── styles
+  │   ├── styles.css
+  │   └── additions.css
+  └── js
+      └── additions.js

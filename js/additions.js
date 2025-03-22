@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Создаем контейнер для дополнительных элементов
-    const calculator = document.querySelector('div');
-    const additionalContainer = document.createElement('div');
-    additionalContainer.className = 'additional-container';
-    calculator.parentNode.insertBefore(additionalContainer, calculator.nextSibling);
-    
+    // Находим контейнер для дополнительных элементов
+    const additionalContainer = document.querySelector('.additional-info');
     
     // Создаем основной сворачивающийся блок
     const mainDetails = document.createElement('details');
@@ -18,13 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
     detailsContent.className = 'details-content';
     mainDetails.appendChild(detailsContent);
     
-    // 1. Добавляем надпись внизу калькулятора
+    // 1. Добавляем надпись внизу калькулятора (задание 9)
     const authorInfo = document.createElement('div');
     authorInfo.className = 'author-info';
     authorInfo.textContent = 'ЛР выполнена Фролов С.В.';
     detailsContent.appendChild(authorInfo);
     
-    // 2. Добавляем кнопку для смены цвета фона
+    // 2. Добавляем кнопку для смены цвета фона (задание 12)
     const changeBgButton = document.createElement('button');
     changeBgButton.className = 'change-bg-button';
     changeBgButton.textContent = 'Сменить фон';
@@ -35,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     detailsContent.appendChild(changeBgButton);
     
-    // 3. Добавляем кнопку со ссылкой на GitHub
+    // 3. Добавляем кнопку со ссылкой на GitHub (задание 16)
     const githubLink = document.createElement('a');
     githubLink.href = 'https://github.com/svfrolov/XML/tree/lab1';
     githubLink.target = '_blank';
@@ -45,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     githubLink.appendChild(githubButton);
     detailsContent.appendChild(githubLink);
     
-    // 4. Добавляем поле с выпадающим списком
+    // 4. Добавляем поле с выпадающим списком (задание 17)
     const dropdownContainer = document.createElement('div');
     dropdownContainer.className = 'dropdown-container';
     const themeLabel = document.createElement('label');
@@ -74,9 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Объект с цветами для разных тем
         const themeColors = {
-            'default': '#ffffff',
+            'default': '#1e1e1e',
             'light': '#f5f5f5',
-            'dark': '#1e1e1e',
+            'dark': '#121212',
             'neon': '#0a0a2a'
         };
         
@@ -90,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dropdownContainer.appendChild(themeSelect);
     detailsContent.appendChild(dropdownContainer);
     
-    // 5. Добавляем сворачивающиеся и разворачивающиеся подробности
+    // 5. Добавляем сворачивающиеся и разворачивающиеся подробности (задание 18)
     const detailsSection = document.createElement('details');
     detailsSection.className = 'details-section';
     const summary = document.createElement('summary');
@@ -107,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     detailsSection.appendChild(groupParagraph);
     detailsContent.appendChild(detailsSection);
     
-    // 6. Добавляем поле с целью ЛР и подсвечиваем слова
+    // 6. Добавляем поле с целью ЛР и подсвечиваем слова (задание 19)
     const purposeSection = document.createElement('div');
     purposeSection.className = 'purpose-section';
     

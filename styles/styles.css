@@ -1,109 +1,140 @@
-/* Общие стили */
+/* Общие стили для страницы */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e; /* Тёмный фон страницы */
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #1e1e1e; /* Темный фон (задание 2) */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    /* Добавляем фоновое изображение */
-    background-image: url('1.png');
+    /* Добавление фонового изображения (задание 15) */
+    background-image: url('../img/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Контейнер калькулятора */
-div {
-    background-color: rgba(57, 62, 111, 0.85); /* Полупрозрачный тёмно-синий фон калькулятора */
+/* Контейнер калькулятора (задание 10 - выравнивание по центру) */
+.calculator {
+    background-color: rgba(40, 40, 40, 0.9);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Добавляем размытие для лучшей читаемости */
+    backdrop-filter: blur(5px);
+    max-width: 280px;
+    margin: 0 auto;
 }
 
-/* Экран результата */
-#result {
-    background-color: #3a3a3a;
-    border-radius: 5px;
-    padding: 15px; /* Увеличен размер окна вывода */
+/* Стили для экрана калькулятора */
+.result {
+    width: 100%;
+    height: 70px; /* Увеличенный размер окна вывода (задание 11) */
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #333;
     text-align: right;
-    font-size: 2.5rem; /* Увеличен размер шрифта */
-    color: #ff9f43; /* Изменен цвет шрифта на оранжевый */
-    margin-bottom: 20px;
-    font-family: 'Courier New', monospace; /* Изменен шрифт цифр */
-    font-weight: bold; /* Сделан шрифт более толстым */
+    color: #4caf50; /* Изменен цвет вывода (задание 4) */
+    font-size: 2rem;
+    font-family: 'Courier New', monospace; /* Изменен шрифт цифр (задание 6) */
+    font-weight: 700; /* Шрифт более толстый (задание 7) */
+    border-radius: 10px; /* Скругленные края (задание 5) */
+    overflow: hidden;
 }
 
-/* Кнопки */
-button {
-    width: 60px;
-    height: 60px;
+/* Базовый стиль для кнопок */
+.my-btn {
     margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 0; /* Квадратные кнопки (задание 3) */
     border: none;
-    border-radius: 5px;
+    background: #424242;
+    color: #e0e0e0; /* Изменен цвет шрифта (задание 14) */
     font-size: 1.5rem;
+    font-family: 'Courier New', monospace; /* Изменен шрифт (задание 6) */
+    font-weight: 300; /* Шрифт тоньше (задание 13) */
     cursor: pointer;
     user-select: none;
+    transition: all 0.2s ease;
 }
 
-/* Эффект при наведении */
-button:hover {
-    filter: brightness(120%);
-    background-color: #5352ed; /* Изменен цвет при наведении на синий */
+/* Стили для наведения на кнопку */
+.my-btn:hover {
+    background: #616161; /* Изменен цвет при наведении (задание 8) */
+    transform: translateY(-2px);
 }
 
-/* Стили для кнопок */
-button.secondary {
-    background-color: #686de0; /* Яркий фиолетово-синий */
-    color: #fff;
+/* Стили для активации кнопки */
+.my-btn:active {
+    filter: brightness(130%);
+    transform: translateY(0);
 }
 
-button.primary {
-    background-color: #4834d4; /* Насыщенный фиолетовый */
-    color: #fff;
+/* Стили для кнопок операций */
+.my-btn.primary {
+    background: #4caf50; /* Изменена цветовая палитра (задание 1) */
 }
 
-button.digit {
-    background-color: #535c68; /* Серо-синий */
-    color: #fff;
+/* Стили для второстепенных кнопок */
+.my-btn.secondary {
+    background: #607d8b; /* Изменена цветовая палитра (задание 1) */
 }
 
-/* Стили для кнопки "луна" */
-button.luna {
-    background-color: #00b894; /* Используем цвет кнопки с изображения */
-    color: #fff;
+/* Стили для кнопки равно */
+.my-btn.execute {
+    width: 110px;
+    border-radius: 0; /* Квадратная кнопка (задание 3) */
+}
+
+/* Стили для верхнего и нижнего блоков */
+.top-block, .bottom-block {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.bottom-block {
+    margin-top: 20px;
+}
+
+/* Добавьте эти стили в ваш файл styles.css */
+
+/* Стили для контейнеров с кнопками */
+.calculator > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Корректировка для кнопки "равно" */
+.calculator > div:last-child {
+    justify-content: space-between;
+}
+
+/* Обновленные стили для кнопок */
+.my-btn {
+    margin: 2px;  /* Уменьшаем отступы между кнопками */
+    flex: 1;      /* Каждая кнопка занимает равную часть пространства */
+    max-width: 60px; /* Ограничиваем максимальную ширину */
+    height: 50px;
+    border-radius: 0; /* Квадратные кнопки (задание 3) */
     border: none;
-    border-radius: 50px;
-    width: 60px;
-    height: 60px;
-    font-size: 1rem;
-    font-weight: bold;
+    background: #424242;
+    color: #e0e0e0; /* Изменен цвет шрифта (задание 14) */
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace; /* Изменен шрифт (задание 6) */
+    font-weight: 300; /* Шрифт тоньше (задание 13) */
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 5px;
-    padding: 0;
+    user-select: none;
+    transition: all 0.2s ease;
 }
 
-/* Эффект наведения */
-button:hover {
-    filter: brightness(120%);
-}
-
-/* Эффект нажатия */
-button:active {
-    filter: brightness(90%);
-}
-
-/* Эффект наведения для кнопки "луна" */
-button.luna:hover {
-    background-color: #78c357; /* Более светлый зеленый при наведении */
-    filter: brightness(120%);
-}
-
-/* Эффект нажатия для кнопки "луна" */
-button.luna:active {
-    filter: brightness(120%);
-    background-color: #5352ed; /* Изменен цвет при наведении на синий */
+/* Обновленные стили для кнопки равно */
+.my-btn.execute {
+    flex: 2;      /* Кнопка "равно" занимает в два раза больше места */
+    max-width: 120px;
+    border-radius: 0; /* Квадратная кнопка (задание 3) */
 }
