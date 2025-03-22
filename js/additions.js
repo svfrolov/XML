@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 3. Добавляем кнопку со ссылкой на GitHub
     const githubLink = document.createElement('a');
-    githubLink.href = 'https://github.com/svfrolov/xml';
+    githubLink.href = 'https://github.com/svfrolov/XML/tree/lab1';
     githubLink.target = '_blank';
     const githubButton = document.createElement('button');
     githubButton.className = 'github-button';
