@@ -1,8 +1,8 @@
 # Конкретные файлы и папки
-node_modules/
-private/
-dist/
-build/
+/node_modules/
+/private/
+/dist/
+/build/
 
 secret_config.xml
 credentials.json
