@@ -2,6 +2,8 @@ project-root/
 │
 ├── bff/
 │   └── index.js                    # JSON-файл с данными акций
+├── http-server.js                  # API на встроенном модуле запуститть и перейти http://localhost:3000/stocks
+│
 ├── db/
 │   └── stocks.json                 # внешний клиент
 │
@@ -19,10 +21,12 @@ project-root/
 ├── index.js                        # Основной файл приложения с настройкой сервера
 │
 ├── .gitignore
+│
+├── test-api.html                   # HTML-страница для тестирования API
 ├── fix-encoding.js                 # Обновить stocks.json
+│
 ├── README.md                       # Файлы и страницы гит
 ├── shema.txt                       # Схема
-├── http-server.js                  # API на встроенном модуле запуститть и перейти http://localhost:3000/stocks
 │
 ├── package.json                    # Файл с зависимостями и настройками проекта
 └── package-lock.json               # Автоматически генерируемый файл с точными версиями зависимостей
