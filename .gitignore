@@ -1,4 +1,5 @@
 # Конкретные файлы и папки
+node_modules/
 private/
 dist/
 build/
