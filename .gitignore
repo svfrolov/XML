@@ -1,13 +1,15 @@
-# Конкретные файлы и папки
-private/
-dist/
-build/
+# Системные файлы и папки
+node_modules/
+.DS_Store
+desktop.ini
+Thumbs.db
 
-secret_config.xml
-credentials.json
-my_notes.txt
-git_push.txt
-ssh serv.txt
+# Игнорировать lab папки
+lab1/
+lab2/
+lab4/
+lab5/
+lab6/
 
 # Файлы IDE
 .vs/
@@ -27,29 +29,17 @@ ssh serv.txt
 [Bb]uild/
 [Dd]ebug/
 [Rr]elease/
+dist/
+build/
 
 # Логи и базы данных
 *.log
 *.sqlite
 *.db
 
-# Файлы компиляции
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.pyc
-*.pyo
-__pycache__/
-
-# Резервные копии
-*~
-*.bak
-*.swp
-*.swo
-.DS_Store
-Thumbs.db
+# Пакетные менеджеры
+package-lock.json
+yarn.lock
 
 # Конфигурационные файлы
 .env
@@ -57,3 +47,11 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Специфичные для проекта
+private/
+secret_config.xml
+credentials.json
+my_notes.txt
+git_push.txt
+ssh serv.txt
