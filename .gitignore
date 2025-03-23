@@ -1,5 +1,9 @@
 # Системные файлы и папки
-node_modules/
+# Конкретные файлы и папки
+/node_modules/
+/private/
+/dist/
+/build/
 .DS_Store
 desktop.ini
 Thumbs.db
