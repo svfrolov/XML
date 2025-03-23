@@ -1,1 +1,18 @@
-[{"id":1,"src":"https://example.com/image1.jpg","name":"Apple Inc.","ticker":"AAPL","price":150.25,"change":2.5,"title":"Обновленный заголовок","text":"Обновленный текст"},{"id":2,"src":"https://example.com/image2.jpg","name":"Microsoft Corporation","ticker":"MSFT","price":290.75,"change":-1.2},{"id":270,"src":"https://example.com/test.jpg","title":"Проверка кодировки","text":"Русский текст работает корректно"}]
+[
+  {
+    "id": 1,
+    "src": "https://example.com/image1.jpg",
+    "name": "Apple Inc.",
+    "ticker": "AAPL",
+    "price": 150.25,
+    "change": 2.5
+  },
+  {
+    "id": 2,
+    "src": "https://example.com/image2.jpg",
+    "name": "Microsoft Corporation",
+    "ticker": "MSFT",
+    "price": 290.75,
+    "change": -1.2
+  }
+]
