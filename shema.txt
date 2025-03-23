@@ -1,0 +1,28 @@
+project-root/
+│
+├── bff/
+│   └── index.js                    # JSON-файл с данными акций
+├── db/
+│   └── stocks.json                 # внешний клиент
+│
+├── internal/
+│   └── stocks/                     # Модуль для работы с акциями
+│       ├── index.js                # Роутер для акций
+│       ├── StocksController.js     # Контроллер для обработки HTTP-запросов
+│       ├── StocksService.js        # Сервисный слой с бизнес-логикой
+│       ├── StocksDAO.js            # Объекты доступа к данным
+│       └── StocksRepository.js     # Репозиторий для работы с хранилищем данных
+│
+├── modules/
+│   └── DBConnector.js              # Модуль для работы с файловой системой
+│
+├── index.js                        # Основной файл приложения с настройкой сервера
+│
+├── .gitignore
+├── fix-encoding.js                 # Обновить stocks.json
+├── README.md                       # Файлы и страницы гит
+├── shema.txt                       # Схема
+├── http-server.js                  # API на встроенном модуле запуститть и перейти http://localhost:3000/stocks
+│
+├── package.json                    # Файл с зависимостями и настройками проекта
+└── package-lock.json               # Автоматически генерируемый файл с точными версиями зависимостей
