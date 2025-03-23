@@ -1,12 +1,8 @@
-# Конкретные файлы и папки
-secret_config.xml
-credentials.json
-private/
-my_notes.txt
-git_push.txt
-shema.png
-index.php
-styles_gl.css
+# Системные файлы и папки
+node_modules/
+.DS_Store
+desktop.ini
+Thumbs.db
 
 # Файлы IDE
 .vs/
@@ -26,6 +22,8 @@ styles_gl.css
 [Bb]uild/
 [Dd]ebug/
 [Rr]elease/
+dist/
+build/
 
 # Логи и базы данных
 *.log
@@ -33,28 +31,8 @@ styles_gl.css
 *.db
 
 # Пакетные менеджеры
-node_modules/
-bower_components/
 package-lock.json
 yarn.lock
-
-# Файлы компиляции
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.pyc
-*.pyo
-__pycache__/
-
-# Резервные копии
-*~
-*.bak
-*.swp
-*.swo
-.DS_Store
-Thumbbs.db
 
 # Конфигурационные файлы
 .env
@@ -63,30 +41,10 @@ Thumbbs.db
 .env.test.local
 .env.production.local
 
-# Специфичные для XML/Java/JavaScript
-*.min.js
-*.min.css
-dist/
-coverage/
-
-# JavaScript/Node.js
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm
-.eslintcache
-.next/
-out/
-
-# XML-специфичные файлы
-*.xsd~
-*.dtd~
-
-# Конкретные файлы для проекта lab1
-CHANGELOG.md
-Calculator.esproj
-Calculator.sln
-# app.js - раскомментируйте, если этот файл нужно игнорировать
-eslint.config.js
-# package.json - раскомментируйте, если этот файл нужно игнорировать
-/xml/ 
+# Специфичные для проекта
+private/
+secret_config.xml
+credentials.json
+my_notes.txt
+git_push.txt
+ssh serv.txt
