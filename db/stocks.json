@@ -21,29 +21,5 @@
     "name": "Apple Inc.",
     "title": "Новая карточка 3",
     "text": "Карточка с автоматически сгенерированным ID = 3"
-  },
-  {
-    "id": 648,
-    "src": "https://example.com/image2.jpg",
-    "name": "Microsoft Corporation",
-    "ticker": "MSFT",
-    "price": 290.75,
-    "change": -1.2
-  },
-  {
-    "id": 649,
-    "src": "https://example.com/image2.jpg",
-    "name": "Microsoft Corporation",
-    "ticker": "MSFT",
-    "price": 290.75,
-    "change": -1.2
-  },
-  {
-    "id": 650,
-    "src": "https://example.com/image2.jpg",
-    "name": "Microsoft Corporation",
-    "ticker": "MSFT",
-    "price": 290.75,
-    "change": -1.2
   }
 ]
