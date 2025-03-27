@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        button { margin: 5px; padding: 8px 16px; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Тестирование API</h1>
+    
+    <h2>1. Добавление карточки с новым ID</h2>
+    <button onclick="addNewCardWithNextId()">Добавить карточку с новым ID</button>
+    <pre id="new-id-result">Результат будет здесь...</pre>
+    
+    <h2>2. Проверка обработки дубликатов</h2>
+    <button onclick="testDuplicateID()">Проверить добавление дубликата ID=1</button>
+    <pre id="duplicate-result">Результат будет здесь...</pre>
+    
+    <h2>3. Проверка кодировки UTF-8</h2>
+    <button onclick="testUTF8()">Добавить запись с русским текстом</button>
+    <button onclick="getAllStocks()">Получить все записи</button>
+    <pre id="utf8-result">Результат будет здесь...</pre>
+    
+    <h2>4. Проверка метода PATCH</h2>
+    <button onclick="testPatch()">Обновить запись ID=1</button>
+    <button onclick="getStock(1)">Получить запись ID=1</button>
+    <pre id="patch-result">Результат будет здесь...</pre>
+    
+    <script>
+        const API_URL = 'http://localhost:8000/stocks';
+        
+        // Функция для получения максимального ID из существующих карточек
+        async function getMaxId() {
+            try {
+                const response = await fetch(API_URL);
+                const stocks = await response.json();
+                
+                if (stocks.length === 0) {
+                    return 0; // Если карточек нет, начинаем с ID=1
+                }
+                
+                // Находим максимальный ID
+                const maxId = Math.max(...stocks.map(stock => stock.id));
+                return maxId;
+            } catch (error) {
+                console.error("Ошибка при получении максимального ID:", error);
+                return 0;
+            }
+        }
+        
+        // Функция для добавления карточки с ID больше последнего
+        async function addNewCardWithNextId() {
+            try {
+                // Получаем максимальный ID
+                const maxId = await getMaxId();
+                const newId = maxId + 1;
+                
+                // Добавляем новую карточку с ID = maxId + 1
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: newId,
+                        src: "https://example.com/new_card.jpg",
+                        title: "Новая карточка " + newId,
+                        text: "Карточка с автоматически сгенерированным ID = " + newId
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Ошибка: ${response.status} - ${errorText}`);
+                }
+                
+                const data = await response.json();
+                document.getElementById('new-id-result').textContent = `Добавлена новая карточка с ID=${newId}\n` + 
+                    JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('new-id-result').textContent = error.toString();
+            }
+        }
+        
+        // Функция для проверки обработки дубликатов
+        async function testDuplicateID() {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: 1, // Пытаемся добавить карточку с ID=1, который уже должен существовать
+                        src: "https://example.com/test.jpg",
+                        title: "Тест дубликата",
+                        text: "Проверка обработки дубликата"
+                    })
+                });
+                
+                // Получаем ответ
+                const contentType = response.headers.get("content-type");
+                let result;
+                if (contentType && contentType.includes("application/json")) {
+                    result = await response.json();
+                    result = JSON.stringify(result, null, 2);
+                } else {
+                    result = await response.text();
+                }
+                
+                document.getElementById('duplicate-result').textContent = 
+                    `Статус: ${response.status} ${response.statusText}\n${result}`;
+            } catch (error) {
+                document.getElementById('duplicate-result').textContent = error.toString();
+            }
+        }
+        
+        async function testUTF8() {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: Math.floor(Math.random() * 1000) + 100, // Случайный ID
+                        src: "https://example.com/test.jpg",
+                        title: "Проверка кодировки",
+                        text: "Русский текст работает корректно"
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('utf8-result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('utf8-result').textContent = error.toString();
+            }
+        }
+        
+        async function getAllStocks() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                document.getElementById('utf8-result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('utf8-result').textContent = error.toString();
+            }
+        }
+        
+        async function testPatch() {
+            try {
+                const response = await fetch(`${API_URL}/1`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        title: "Обновленный заголовок",
+                        text: "Обновленный текст"
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('patch-result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('patch-result').textContent = error.toString();
+            }
+        }
+        
+        async function getStock(id) {
+            try {
+                const response = await fetch(`${API_URL}/${id}`);
+                const data = await response.json();
+                document.getElementById('patch-result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('patch-result').textContent = error.toString();
+            }
+        }
+    </script>
+</body>
+</html>
