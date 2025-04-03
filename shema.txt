@@ -1,4 +1,4 @@
-project-root/
+lab4/
 │
 ├── bff/
 │   └── index.js                    # JSON-файл с данными акций
