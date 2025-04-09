@@ -14,12 +14,5 @@
     "ticker": "MSFT",
     "price": 290.75,
     "change": -1.2
-  },
-  {
-    "id": 3,
-    "src": "https://example.com/new_card.jpg",
-    "name": "Apple Inc.",
-    "title": "Новая карточка 3",
-    "text": "Карточка с автоматически сгенерированным ID = 3"
   }
 ]
